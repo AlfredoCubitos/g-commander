@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="serial-connected">resources/icon-link-connected.png</file>
+        <file alias="serial-disconnected">resources/icon-link-unconnected.png</file>
+        <file alias="monitor-cancelled">resources/icon-monitor-cancelled.png</file>
+        <file alias="monitor-error">resources/icon-monitor-error.png</file>
+        <file alias="monitor-ok">resources/icon-monitor-ok.png</file>
+        <file alias="monitor-running">resources/icon-monitor-running.png</file>
+        <file alias="monitor-alarm">resources/icon-monitor-alarm.png</file>
+        <file alias="monitor-info">resources/icon-monitor-info.png</file>
+    </qresource>
+</RCC>
