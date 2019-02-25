@@ -22,13 +22,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     parser = new GCodeParser(this);
 
-   resize(QSize(640,480));
+
    createWidgets();
 
 
     settings = new QSettings("settings.ini",QSettings::IniFormat,this);
 
     connectEverything();
+    //Raspi 7'' size
+    this->setFixedSize(QSize(800,480));
 
 }
 
