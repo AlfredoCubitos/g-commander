@@ -3,13 +3,15 @@
 #include "grblconfigurationdialog.h"
 
 #include <QMessageBox>
+#include <QGuiApplication>
+
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     isGrblInCheckMode = false;
-
+    QScreen *screen = QGuiApplication::primaryScreen();
     setWindowTitle("G-Commander");
 
     setCentralWidget(nullptr);
@@ -28,9 +30,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     settings = new QSettings("settings.ini",QSettings::IniFormat,this);
 
+
     connectEverything();
+    QSize size = screen->availableSize();
+
+    setMaximumSize(size);
     //Raspi 7'' size
-    this->setFixedSize(QSize(800,480));
+   // this->setFixedSize(QSize(800,480));
 
 }
 

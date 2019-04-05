@@ -5,6 +5,7 @@
 #include <QDockWidget>
 #include <QSettings>
 #include <QMenuBar>
+#include <QScreen>
 
 #include "grblboard.h"
 #include "gcodestreamer.h"
@@ -54,6 +55,7 @@ private:
 
     void addWidgetAndDockToUi(QDockWidget* dock,QWidget* widget);
     void createWidgets();
+
 
     GrblBoard *grbl;
     GCodeStreamer* streamer;

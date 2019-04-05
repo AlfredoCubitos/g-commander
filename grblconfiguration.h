@@ -14,8 +14,8 @@ public:
     QVariant getValue() const {return m_value;}
     QString getCaption() const {return m_caption;}
 
-    static bool isAValidParameter(QString string);
-    static GrblConfiguration fromString(QString string);
+    static bool isAValidParameter(const QString &string);
+    static GrblConfiguration fromString(const QString &string);
 
 private:
     int m_key;

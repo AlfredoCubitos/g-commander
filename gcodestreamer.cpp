@@ -38,7 +38,7 @@ void GCodeStreamer::loadFile(const QString &path){
 
     if (file.open(QIODevice::ReadOnly))
     {
-        file.reset();
+        //file.reset();
 
         //Store file in linevector
         while(!file.atEnd()){
@@ -68,7 +68,8 @@ void GCodeStreamer::loadFile(const QString &path){
     emit stateChanged(getState());
 
     //Make the file ready to start from the beginning
-    rewind();
+    //not necessary if file is not open
+   // rewind();
 }
 
 void GCodeStreamer::cleanupLine(QByteArray* code){

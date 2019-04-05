@@ -4,12 +4,12 @@
 const QRegularExpression GrblConfiguration::s_paramExpression = QRegularExpression("^\\$(?<key>[\\d]{1,3})=(?<value>[\\d][\\d|\\.]*)(\\s\\((?<caption>.+)\\))?$");
 
 
-bool GrblConfiguration::isAValidParameter(QString string){
+bool GrblConfiguration::isAValidParameter(const QString &string){
     QRegularExpressionMatch match = s_paramExpression.match(string);
     return match.hasMatch();
 }
 
-GrblConfiguration GrblConfiguration::fromString(QString string){
+GrblConfiguration GrblConfiguration::fromString(const QString &string){
     GrblConfiguration param;
     QRegularExpressionMatch match = s_paramExpression.match(string);
 
