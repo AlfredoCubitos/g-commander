@@ -21,7 +21,7 @@ GrblBoard::GrblBoard(QObject *parent) :
     m_startupInstructionList.append(GrblInstruction(QStringLiteral(INST_GET_PARAMS)));
 }
 
-void GrblBoard::setSerialSettings(QString portName, qint32 baudRate){
+void GrblBoard::setSerialSettings(const QString &portName, const qint32 &baudRate){
     m_serialPort->setPortName(portName);
     m_serialPort->setBaudRate(baudRate);
 }
@@ -48,7 +48,7 @@ QMap<int,GrblConfiguration> *GrblBoard::getParametersMap(void){
     return &m_parametersMapComplete;
 }
 
-void GrblBoard::setStatusRequestInterval(int interval){
+void GrblBoard::setStatusRequestInterval(const int &interval){
     m_statusTimer->setInterval( interval);
 }
 
@@ -142,7 +142,7 @@ void GrblBoard::onSerialDataAvailable(){
 }
 
 
-void GrblBoard::sendInstruction(GrblInstruction instruction){
+void GrblBoard::sendInstruction(const GrblInstruction &instruction){
     //If serial link not opened, or a blocking instruction is in buffer, reject instruction
     if(!m_serialPort->isOpen() || isBlockingInstructionInBuffer()){
         return;

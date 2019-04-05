@@ -10,8 +10,8 @@ class HistoryItem{
 public:
     enum ItemStatus{None, Running, Ok, Error, Cancelled, Reset, Alarm};
 
-    explicit HistoryItem(const GrblInstruction &instruction, HistoryItem *parent = 0);
-    explicit HistoryItem(const QString &text = QStringLiteral(""), HistoryItem *parent = 0);
+    explicit HistoryItem(const GrblInstruction &instruction, HistoryItem *parent = nullptr);
+    explicit HistoryItem(const QString &text = QStringLiteral(""), HistoryItem *parent = nullptr);
     ~HistoryItem();
 
     ItemStatus status() const;

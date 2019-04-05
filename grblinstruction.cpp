@@ -41,7 +41,7 @@ void GrblInstruction::forceBlocking(){
     m_isBlocking = true;
 }
 
-QString GrblInstruction::getStringWithLineNumber(){
+QString GrblInstruction::getStringWithLineNumber() const{
     if(m_lineNumber > 0){
         QString returnString("Line %1 : %2");
         return returnString.arg(m_lineNumber).arg(QString::fromLatin1(m_instructionBytes));

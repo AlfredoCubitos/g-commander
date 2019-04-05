@@ -16,7 +16,7 @@ void GrblErrorRecorder::clear(){
     m_errorStringList.clear();
 }
 
-void GrblErrorRecorder::addError(GrblInstruction instruction, QString errorString){
+void GrblErrorRecorder::addError(const GrblInstruction &instruction, const QString &errorString){
     QString errorSummaryString("%1    %2"); //No need for a line return char, since instruction comes with a line return
     m_errorStringList.append(errorSummaryString.arg(instruction.getStringWithLineNumber(),errorString));
 }

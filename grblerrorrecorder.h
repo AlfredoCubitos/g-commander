@@ -9,7 +9,7 @@ class GrblErrorRecorder : public QObject
 {
     Q_OBJECT
 public:
-    explicit GrblErrorRecorder(QObject *parent = 0);
+    explicit GrblErrorRecorder(QObject *parent = nullptr);
 
     QString getErrorSummary();
     int getErrorCount();
@@ -18,7 +18,7 @@ signals:
 
 public slots:
     void clear();
-    void addError(GrblInstruction instruction, QString errorString);
+    void addError(const GrblInstruction &instruction, const QString &errorString);
 
 private:
 

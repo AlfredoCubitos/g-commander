@@ -42,7 +42,7 @@ public slots:
     void stop(void);
 
     //open / close file
-    void loadFile(QString m_file);
+    void loadFile(const QString &m_file);
     void clear();
 
     //Move inside file
@@ -50,8 +50,8 @@ public slots:
     void goToLine(int line);
 
     //Grbl board related slots
-    void onInstructionSentToGrbl(GrblInstruction acceptedInstruction);
-    void onInstructionParsedByGrbl(GrblInstruction parsedInstruction);
+    void onInstructionSentToGrbl(const GrblInstruction &acceptedInstruction);
+    void onInstructionParsedByGrbl(const GrblInstruction &parsedInstruction);
     void onGrblStatusUpdated(GrblStatus* const status);
 
 

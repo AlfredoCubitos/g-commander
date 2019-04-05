@@ -148,7 +148,7 @@ QVariant HistoryModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags HistoryModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     return QAbstractItemModel::flags(index);
 }

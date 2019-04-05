@@ -18,7 +18,7 @@ public:
     int getLength() const {return m_instructionBytes.length();}
     QString getString() const {return QString::fromLatin1(m_instructionBytes);}
 
-    QString getStringWithLineNumber();
+    QString getStringWithLineNumber() const;
 
     bool isParameterFetch(void) const;
 

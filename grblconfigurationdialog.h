@@ -20,13 +20,13 @@ public:
     ~GrblConfigurationDialog();
 
 signals:
-    void sendToGrbl(GrblInstruction instruction);
+    void sendToGrbl(const GrblInstruction &instruction);
 
 public slots:
     int exec();
     void onParameterMapUpdated(QMap<int,GrblConfiguration> *parametersMap);
-    void onInstructionOk(GrblInstruction instruction);
-    void onInstructionError(GrblInstruction instruction, QString error);
+    void onInstructionOk(const GrblInstruction &instruction);
+    void onInstructionError(const GrblInstruction &instruction, const QString &error);
 
 private slots:
     void onItemChanged(QTableWidgetItem* item);

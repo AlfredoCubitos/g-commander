@@ -30,7 +30,7 @@ GCodeStreamer::states GCodeStreamer::getState(void){
     }
 }
 
-void GCodeStreamer::loadFile(QString path){
+void GCodeStreamer::loadFile(const QString &path){
 
     clear();
 
@@ -183,7 +183,7 @@ void GCodeStreamer::onGrblStatusUpdated(GrblStatus* const status){
     }
 }
 
-void GCodeStreamer::onInstructionParsedByGrbl(GrblInstruction parsedInstruction){
+void GCodeStreamer::onInstructionParsedByGrbl(const GrblInstruction &parsedInstruction){
     int parsedLineNumber = parsedInstruction.getLineNumber();
     if( parsedLineNumber >= 0){
         m_lastLineParsedByGrbl = parsedLineNumber;
@@ -194,7 +194,7 @@ void GCodeStreamer::onInstructionParsedByGrbl(GrblInstruction parsedInstruction)
     }
 }
 
-void GCodeStreamer::onInstructionSentToGrbl(GrblInstruction acceptedInstruction){
+void GCodeStreamer::onInstructionSentToGrbl(const GrblInstruction &acceptedInstruction){
     //If there is actually something to send
     if(m_usefulLinesVector.isEmpty()){
         return;

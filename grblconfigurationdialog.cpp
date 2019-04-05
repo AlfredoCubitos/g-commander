@@ -70,7 +70,7 @@ void GrblConfigurationDialog::onItemChanged(QTableWidgetItem* item){
     }
 }
 
-void GrblConfigurationDialog::onInstructionOk(GrblInstruction instruction){
+void GrblConfigurationDialog::onInstructionOk(const GrblInstruction &instruction){
     if(instruction == m_lastSetParamInstruction){
         ui->iconLabel->setPixmap(QPixmap(":/monitor-ok"));
         ui->infoLabel->setText("Parameter edited successfully");
@@ -78,7 +78,7 @@ void GrblConfigurationDialog::onInstructionOk(GrblInstruction instruction){
     }
 }
 
-void GrblConfigurationDialog::onInstructionError(GrblInstruction instruction, QString error){
+void GrblConfigurationDialog::onInstructionError(const GrblInstruction &instruction, const QString &error){
     if(instruction == m_lastSetParamInstruction){
         ui->iconLabel->setPixmap(QPixmap(":/monitor-error"));
         ui->infoLabel->setText(QString("Could not edit parameter : %1").arg(error));

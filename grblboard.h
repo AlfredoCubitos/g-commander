@@ -15,11 +15,11 @@ class GrblBoard : public QObject
     Q_OBJECT
 public:
 
-    explicit GrblBoard(QObject *parent = 0);
+    explicit GrblBoard(QObject *parent = nullptr);
 
-    void setSerialSettings(QString portName, qint32 baudRate);
+    void setSerialSettings(const QString &portName, const qint32 &baudRate);
 
-    void setStatusRequestInterval(int interval);
+    void setStatusRequestInterval(const int &interval);
 
     const GrblStatus *getLastStatus(void) const;
     QMap<int,GrblConfiguration> *getParametersMap(void);
@@ -32,22 +32,22 @@ signals:
     void statusUpdated(GrblStatus* const status);
 
     //Board sent hello message after a reset
-    void boardStartup(QString versionString, QList<GrblInstruction> startupRelatedInstructions);
+    void boardStartup(const QString &versionString, const QList<GrblInstruction> &startupRelatedInstructions);
 
     //Instruction has been processed, board sent response. After one of these we can iterate to the next command
-    void ok(GrblInstruction instruction);
-    void error(GrblInstruction instruction,QString errorMessage);        //Remember to freeze on this  if processsing a file
+    void ok(const GrblInstruction &instruction);
+    void error(const GrblInstruction &instruction,const QString &errorMessage);        //Remember to freeze on this  if processsing a file
 
     //Informative messages, does not indicate that instruction was completed or anything. Do not base sequencing on theses !
-    void alarm(GrblInstruction instruction, QString alarmMessage);
-    void feedback(GrblInstruction instruction, QString feedbackMessage);
-    void text(GrblInstruction instruction, QString textMessage);
+    void alarm(const GrblInstruction &instruction, const QString &alarmMessage);
+    void feedback(const GrblInstruction instruction, const QString &feedbackMessage);
+    void text(const GrblInstruction &instruction, const QString &textMessage);
 
     //Parameters have been updated
     void parametersMapUpdated(QMap<int,GrblConfiguration> *updatedMap);
 
     //Emitted when instruction is placed in char buffer
-    void instructionSent(GrblInstruction instruction);
+    void instructionSent(const GrblInstruction &instruction);
 
 public slots:
 
@@ -62,7 +62,7 @@ public slots:
     void rtCmdSafetyDoor(void);
 
     //Send an instruction
-    void sendInstruction(GrblInstruction instruction);
+    void sendInstruction(const GrblInstruction &instruction);
 
 private slots:
 
