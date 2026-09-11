@@ -22,7 +22,7 @@ public:
 
     enum G6_UnitsMode{UNITS_MODE_MM = 0, UNITS_MODE_INCHES};
 
-    explicit GCodeParser(QObject *parent = 0);
+    explicit GCodeParser(QObject *parent = nullptr);
 
     uint32_t getMachineTime() const;
 
@@ -67,7 +67,7 @@ private:
     QVector3D m_currentPos; //in mm
     bool m_isCurrentPosValid;
 
-    QMultiMap<char,float> m_wordMap;
+    QMultiMap<QChar,float> m_wordMap;
 
     static const int s_axisArray[3][3];
 };

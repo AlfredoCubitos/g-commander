@@ -1,2 +1,5 @@
 G-Commander.pro.user
 *.user
+build
+.git
+.qtcreator

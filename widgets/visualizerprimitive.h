@@ -2,8 +2,8 @@
 #define VISUALIZERSEGMENT_H
 
 #include <QOpenGLFunctions>
-#include <QOpenGLBuffer>
-#include <QOpenGLShaderProgram>
+#include <QtOpenGL/QOpenGLBuffer>
+#include <QtOpenGL/QOpenGLShaderProgram>
 #include <QVector4D>
 
 struct PrimitiveDrawSettings{

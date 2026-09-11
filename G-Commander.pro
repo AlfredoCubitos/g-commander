@@ -8,7 +8,7 @@ QT       += core gui serialport
 
 CONFIG += C++11
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets openglwidgets
 
 TARGET = G-Commander
 TEMPLATE = app

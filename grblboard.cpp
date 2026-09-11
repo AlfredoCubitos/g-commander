@@ -83,7 +83,7 @@ void GrblBoard::onSerialDataAvailable(){
         //Error message
         else if(line.startsWith(RESPONSE_ERROR)){
             if(!m_boardCharBuffer.isEmpty())m_boardCharBuffer.removeFirst();    //Instruction processed, not in char buffer any more
-            addErrorTranslation(&line);
+            addErrorTranslation(line);
             emit error(relatedInstruction,line);
         }
 
@@ -188,15 +188,15 @@ int GrblBoard::getAvailableSpaceInCharBuffer(void){
 
 
 
-void GrblBoard::addErrorTranslation(QString *errorString){
+void GrblBoard::addErrorTranslation(QString &errorString){
     static const QRegularExpression errorIdRegExp = QRegularExpression(GRBL_ERR_REGEXP);
 
     QRegularExpressionMatch match = errorIdRegExp.match(errorString);
     if(match.hasMatch()){
         int id = match.captured("id").toInt();
         if(errorTranslationMap.contains(id)){
-            errorString->append(" : ");
-            errorString->append(errorTranslationMap.value(id));
+            errorString.append(" : ");
+            errorString.append(errorTranslationMap.value(id));
         }
     }
 }

@@ -15,7 +15,7 @@ class GCodeStreamer : public QObject
 public:
     enum states {state_clear, state_ready, state_running};
 
-    explicit GCodeStreamer(QObject *parent = 0);
+    explicit GCodeStreamer(QObject *parent = nullptr);
 
     states getState(void);
 

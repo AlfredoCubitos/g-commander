@@ -367,7 +367,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Noto Sans Cond Light</family>
+       <family>Noto Sans</family>
        <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>

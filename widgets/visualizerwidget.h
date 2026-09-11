@@ -4,9 +4,9 @@
 #include "visualizerprimitive.h"
 #include "grblinstruction.h"
 #include "grblstatus.h"
-#include <QOpenGLWidget>
+#include <QtOpenGLWidgets/QOpenGLWidget>
 #include <QOpenGLFunctions>
-#include <QOpenGLShaderProgram>
+#include <QtOpenGL/QOpenGLShaderProgram>
 #include <QMatrix4x4>
 #include <QQuaternion>
 #include <QVector2D>

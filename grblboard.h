@@ -76,7 +76,7 @@ private:
     int getAvailableSpaceInCharBuffer();
     bool isBlockingInstructionInBuffer(void);
 
-    void addErrorTranslation(QString* errorString);
+    void addErrorTranslation(QString &errorString);
 
 
     QList<GrblInstruction> m_boardCharBuffer;

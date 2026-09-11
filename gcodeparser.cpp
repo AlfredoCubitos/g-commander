@@ -3,6 +3,8 @@
 #include <QRegularExpression>
 #include <QVector>
 #include <QVector2D>
+#include <QList>
+#include <QtDebug>
 #include <qmath.h>
 #include "grbldefinitions.h"
 
@@ -64,7 +66,7 @@ void GCodeParser::parseInstruction(GrblInstruction instruction){
         }
 
         //Extract value
-        QStringRef valueStringRef = simplifiedGCode.midRef(index,nextIndex-index);
+        QStringView valueStringRef = QStringView(simplifiedGCode).mid(index,nextIndex-index);
         bool success = true;
         float value = valueStringRef.toFloat(&success);
 
@@ -208,7 +210,7 @@ QVector<QVector3D> GCodeParser::buildArcPointsVector(QVector3D target){
 
 QVector2D GCodeParser::computeArcCenter(QVector3D target){
     const int *axis = getAxisMap();
-
+    qDebug() << "cumpute arc";
     //Initialize center position at current position
     QVector2D arcCenter;
     arcCenter[0] = m_currentPos[axis[0]];
@@ -256,9 +258,11 @@ QVector2D GCodeParser::computeArcCenter(QVector3D target){
 
     //Try with center offset definition
     else{
-        const char axisLetter[] = {'I','J','K'};
+       // const char axisLetter[] = {'I','J','K'};
+        QList<QChar> axisLetter = {'I','J','K'};
             for(int i = 0 ; i < 2 ; i++){
                 float value = m_wordMap.value(axisLetter[axis[i]],0.0f);
+                qDebug() << "axisLetter " << value;
 
                 if(m_g6Units == UNITS_MODE_INCHES){
                     value *= MM_PER_INCH;
